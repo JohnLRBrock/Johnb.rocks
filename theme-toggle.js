@@ -11,13 +11,13 @@
   function applyTheme(theme) {
     if (theme === DARKER) {
       document.documentElement.setAttribute('data-theme', DARKER);
-      icon.textContent = '🌙';
-      label.textContent = 'Dark Mode';
+      icon.textContent = '🌑';
+      label.textContent = 'Even Darker Mode';
       btn.setAttribute('aria-label', 'Switch to dark mode');
     } else {
       document.documentElement.removeAttribute('data-theme');
-      icon.textContent = '🌑';
-      label.textContent = 'Even Darker Mode';
+      icon.textContent = '🌙';
+      label.textContent = 'Dark Mode';
       btn.setAttribute('aria-label', 'Switch to even darker mode');
     }
   }
