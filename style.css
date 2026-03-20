@@ -1,7 +1,9 @@
 /* =========================================
    johnb.rocks — stylesheet
-   Dark, green, a little weird. Welcome.
+   Dark, green, retro. Welcome to the zone.
    ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
   /* Dark mode (default) */
@@ -50,12 +52,28 @@
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Courier New', Courier, monospace;
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
   padding-bottom: 100px;
   transition: var(--transition-theme);
+}
+
+/* Subtle scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9998;
 }
 
 /* ---- Header ---- */
@@ -64,10 +82,10 @@ header {
   background: var(--bg-header);
   color: var(--text);
   text-align: center;
-  padding: 64px 24px 56px;
+  padding: 48px 24px 44px;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--green-sage);
 }
 
 .header-deco {
@@ -77,21 +95,9 @@ header {
   align-items: center;
   justify-content: space-around;
   font-size: 4rem;
-  opacity: 0.05;
+  opacity: 0.04;
   pointer-events: none;
   user-select: none;
-}
-
-header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: var(--bg);
-  clip-path: ellipse(55% 100% at 50% 100%);
-  transition: background-color 0.3s ease;
 }
 
 .header-inner {
@@ -100,23 +106,28 @@ header::after {
 }
 
 header h1 {
-  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  font-family: 'VT323', monospace;
+  font-size: clamp(4rem, 12vw, 7rem);
   font-weight: normal;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
   line-height: 1;
+  color: var(--green-mint);
+  text-shadow: 0 0 18px rgba(122, 184, 138, 0.35);
 }
 
 header h1 .dot {
-  color: var(--green-sage);
+  color: var(--text-light);
 }
 
 .tagline {
-  margin-top: 14px;
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  color: var(--text-mid);
-  font-style: italic;
-  opacity: 0.9;
+  margin-top: 10px;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: var(--text-light);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.06em;
 }
+
+.tagline::before { content: '>> '; color: var(--green-sage); }
 
 /* ---- Theme Toggle ---- */
 
@@ -126,15 +137,15 @@ header h1 .dot {
   right: 16px;
   z-index: 200;
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
+  border: 1px solid var(--green-sage);
+  border-radius: 0;
   padding: 6px 14px;
   display: flex;
   align-items: center;
   gap: 7px;
   cursor: pointer;
-  font-family: system-ui, sans-serif;
-  font-size: 0.78rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
   color: var(--text-mid);
   transition: background 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
@@ -142,7 +153,7 @@ header h1 .dot {
 
 .theme-toggle:hover {
   background: var(--green-pale);
-  border-color: var(--green-sage);
+  border-color: var(--green-mint);
   color: var(--text);
 }
 
@@ -171,13 +182,16 @@ main {
 }
 
 .filters-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--text-light);
   margin-bottom: 12px;
-  font-family: system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
+
+.filters-label::before { content: '[ '; }
+.filters-label::after  { content: ' ]'; }
 
 .tag-filters {
   display: flex;
@@ -186,28 +200,29 @@ main {
 }
 
 .tag-btn {
-  padding: 5px 14px;
-  border-radius: 20px;
-  border: 1.5px solid var(--green-sage);
+  padding: 4px 12px;
+  border-radius: 0;
+  border: 1px solid var(--green-sage);
   background: transparent;
   color: var(--text-mid);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   cursor: pointer;
-  font-family: system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
   line-height: 1.5;
+  letter-spacing: 0.04em;
 }
 
 .tag-btn:hover {
   background: var(--green-pale);
-  border-color: var(--green-mid);
+  border-color: var(--green-mint);
   color: var(--text);
 }
 
 .tag-btn.active {
   background: var(--green-mid);
   color: var(--text);
-  border-color: var(--green-mid);
+  border-color: var(--green-mint);
 }
 
 .tag-btn.all-btn {
@@ -226,33 +241,23 @@ main {
 
 .timeline {
   position: relative;
-  padding-left: 36px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  bottom: 20px;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--green-sage),
-    var(--green-mid) 80%,
-    transparent
-  );
-  border-radius: 2px;
+  padding-left: 0;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 36px;
+  margin-bottom: 0;
+  padding: 28px 0 28px;
+  border-top: 1px solid var(--green-sage);
   animation: fadeUp 0.35s ease both;
 }
 
+.timeline-item:last-child {
+  border-bottom: 1px solid var(--green-sage);
+}
+
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -260,104 +265,265 @@ main {
   display: none;
 }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -30px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--green-sage);
-  border: 2px solid var(--dot-border);
-  outline: 2px solid var(--green-sage);
-  transition: background-color 0.3s ease, border-color 0.3s ease, outline-color 0.3s ease;
+.timeline-date {
+  font-size: 0.7rem;
+  color: var(--green-sage);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.timeline-date {
-  font-size: 0.75rem;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 7px;
-  font-family: system-ui, sans-serif;
-}
+.timeline-date::before { content: '// '; }
+
+/* ---- Card (de-styled — flat content block) ---- */
 
 .timeline-card {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 10px var(--card-shadow);
-  transition: box-shadow 0.2s, transform 0.2s, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.timeline-card:hover {
-  box-shadow: 0 6px 22px var(--card-shadow-hover);
-  transform: translateY(-1px);
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .timeline-card h3 {
-  font-size: 1.15rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.6rem;
   color: var(--green-mint);
-  margin-bottom: 8px;
-  line-height: 1.3;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.timeline-card h3::before {
+  content: '> ';
+  color: var(--green-sage);
 }
 
 .timeline-card .card-body {
   color: var(--text-mid);
-  line-height: 1.7;
-  font-size: 0.95rem;
+  line-height: 1.8;
+  font-size: 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  max-width: 60ch;
 }
 
 .timeline-card a {
   color: var(--green-mint);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--green-sage);
-  transition: color 0.15s, border-color 0.15s;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  transition: color 0.15s;
 }
 
 .timeline-card a:hover {
   color: var(--text);
-  border-bottom-style: solid;
+  text-decoration-style: solid;
 }
 
 .card-link {
   display: inline-block;
-  margin-top: 12px;
-  font-size: 0.88rem;
-  font-family: system-ui, sans-serif;
+  margin-top: 14px;
+  font-size: 0.82rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--green-mint);
+  border: 1px solid var(--green-sage);
+  padding: 3px 10px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.card-link:hover {
+  background: var(--green-pale);
+  color: var(--text);
+  border-color: var(--green-mint);
 }
 
 .card-tags {
-  margin-top: 14px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
 .card-tag {
-  font-size: 0.72rem;
-  padding: 3px 10px;
-  background: var(--green-pale);
-  color: var(--text-light);
-  border-radius: 12px;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: transparent;
+  color: var(--green-sage);
+  border-radius: 0;
+  border: 1px solid var(--green-sage);
   cursor: pointer;
-  font-family: system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.04em;
 }
+
+.card-tag::before { content: '#'; }
 
 .card-tag:hover {
   background: var(--green-mid);
   color: var(--text);
+  border-color: var(--green-mint);
 }
 
 .no-content {
   text-align: center;
   padding: 60px 20px;
   color: var(--text-light);
-  font-style: italic;
-  grid-column: 1 / -1;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: normal;
+}
+
+.no-content::before { content: '[ '; }
+.no-content::after  { content: ' ]'; }
+
+/* ---- Music Player ---- */
+
+.music-player {
+  margin-top: 18px;
+  border: 1px solid var(--green-sage);
+  padding: 14px 16px;
+  background: var(--green-deep);
+  font-family: 'Courier New', Courier, monospace;
+  max-width: 480px;
+}
+
+.mp-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--green-mint);
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mp-note {
+  color: var(--green-sage);
+  flex-shrink: 0;
+}
+
+.mp-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mp-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mp-play-btn {
+  background: transparent;
+  border: 1px solid var(--green-sage);
+  color: var(--green-mint);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.mp-play-btn:hover {
+  background: var(--green-mid);
+  border-color: var(--green-mint);
+  color: var(--text);
+}
+
+.mp-play-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mp-progress-wrap {
+  flex: 1;
+  min-width: 80px;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.mp-progress-bar {
+  height: 8px;
+  background: var(--green-pale);
+  border: 1px solid var(--green-sage);
+  position: relative;
+}
+
+.mp-progress-fill {
+  height: 100%;
+  background: var(--green-sage);
+  width: 0%;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+.mp-time {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+.mp-volume-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.mp-vol-label {
+  font-size: 0.68rem;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.mp-vol-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 6px;
+  background: var(--green-pale);
+  border: 1px solid var(--green-sage);
+  outline: none;
+  cursor: pointer;
+}
+
+.mp-vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 14px;
+  background: var(--green-sage);
+  cursor: pointer;
+  border: none;
+}
+
+.mp-vol-slider::-moz-range-thumb {
+  width: 10px;
+  height: 14px;
+  background: var(--green-sage);
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+}
+
+.mp-error {
+  color: #8e4a4a;
+  font-size: 0.75rem;
+  margin: 6px 0 0;
+  letter-spacing: 0.04em;
 }
 
 /* ---- Cursor Costume Closet ---- */
@@ -386,11 +552,11 @@ main {
   border: none;
   border-top: 1px solid var(--border);
   padding: 11px 20px;
-  border-radius: var(--radius) var(--radius) 0 0;
+  border-radius: 0;
   cursor: pointer;
-  font-family: system-ui, sans-serif;
-  font-size: 0.88rem;
-  letter-spacing: 0.02em;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
   transition: background 0.2s;
   outline: none;
 }
@@ -418,17 +584,17 @@ main {
 
 .closet-header h3 {
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: normal;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .closet-desc {
   color: var(--text-light);
-  font-size: 0.78rem;
-  font-style: italic;
+  font-size: 0.75rem;
   margin-top: 4px;
-  font-family: system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .costume-grid {
@@ -438,9 +604,9 @@ main {
 }
 
 .costume-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1.5px solid transparent;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  border-radius: 0;
   padding: 10px 6px 8px;
   text-align: center;
   cursor: pointer;
@@ -452,13 +618,13 @@ main {
 }
 
 .costume-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   border-color: var(--green-sage);
 }
 
 .costume-card.active {
   border-color: var(--green-mint);
-  background: rgba(122, 184, 138, 0.1);
+  background: rgba(122, 184, 138, 0.08);
 }
 
 .costume-preview {
@@ -469,7 +635,6 @@ main {
   justify-content: center;
   font-size: 1.8rem;
   line-height: 1;
-  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -480,10 +645,11 @@ main {
 }
 
 .costume-name {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: var(--green-mint);
-  font-family: system-ui, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 /* ---- Responsive ---- */
@@ -492,18 +658,14 @@ main {
   .closet-drawer {
     right: 0;
     width: 100%;
-    border-radius: var(--radius) var(--radius) 0 0;
-  }
-  .closet-toggle {
-    border-radius: var(--radius) var(--radius) 0 0;
   }
   main {
     padding: 36px 16px 40px;
   }
-  .timeline {
-    padding-left: 28px;
-  }
   .theme-toggle .theme-toggle-label {
     display: none;
+  }
+  .mp-controls {
+    flex-wrap: wrap;
   }
 }

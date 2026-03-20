@@ -24,6 +24,14 @@
 const timelineContent = [
   {
     date: '2026-03-20',
+    title: 'A Completely Original Composition',
+    body: 'Been working on this one for a while. Totally wrote every note myself. Nothing familiar about it whatsoever.',
+    tags: ['music'],
+    type: 'post',
+    music: 'music/totally_original.mp3',
+  },
+  {
+    date: '2026-03-20',
     title: 'Hello, world 🌱',
     body: 'Planted this little corner of the internet. Not sure what it\'ll grow into — that feels like the point.',
     tags: ['meta', 'web'],

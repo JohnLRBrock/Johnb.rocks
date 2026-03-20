@@ -137,6 +137,14 @@
       card.appendChild(linkEl);
     }
 
+    if (item.music) {
+      const playerEl = document.createElement('div');
+      playerEl.className = 'music-player';
+      playerEl.dataset.src = item.music;
+      playerEl.dataset.title = item.title;
+      card.appendChild(playerEl);
+    }
+
     if (item.tags && item.tags.length) {
       const tagsEl = document.createElement('div');
       tagsEl.className = 'card-tags';
