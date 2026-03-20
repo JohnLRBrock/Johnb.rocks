@@ -17,45 +17,49 @@
    */
   const costumes = [
     {
-      name: 'Potato',
-      previewImg: 'Potato.webp',
-      cursor: "url('Potato_64.png'), auto",
-    },
-    {
       name: 'Default',
       preview: '↖',
       cursor: 'default',
     },
     {
-      name: 'Crosshair',
-      preview: '⊕',
-      cursor: 'crosshair',
+      name: 'Potato',
+      previewImg: 'Potato.webp',
+      cursor: "url('Potato_64.png'), auto",
     },
     {
-      name: 'Magnify',
-      preview: '🔍',
-      cursor: 'zoom-in',
+      name: 'Carrot',
+      previewImg: 'cursors/carrot.png',
+      cursor: "url('cursors/carrot.png') 36 36, auto",
     },
     {
-      name: 'Grab',
-      preview: '✋',
-      cursor: 'grab',
+      name: 'Broccoli',
+      previewImg: 'cursors/broccoli.png',
+      cursor: "url('cursors/broccoli.png') 36 36, auto",
     },
     {
-      name: 'Wand',
-      preview: '🪄',
-      cursor: 'cell',
+      name: 'Eggplant',
+      previewImg: 'cursors/eggplant.png',
+      cursor: "url('cursors/eggplant.png') 36 36, auto",
     },
-    // Add more here:
-    // {
-    //   name: 'My Thing',
-    //   previewImg: 'cursors/my-thing.png',
-    //   cursor: "url('cursors/my-thing.png') 16 16, auto",
-    // },
+    {
+      name: 'Corn',
+      previewImg: 'cursors/corn.png',
+      cursor: "url('cursors/corn.png') 36 36, auto",
+    },
+    {
+      name: 'Tomato',
+      previewImg: 'cursors/tomato.png',
+      cursor: "url('cursors/tomato.png') 36 36, auto",
+    },
+    {
+      name: 'Onion',
+      previewImg: 'cursors/onion.png',
+      cursor: "url('cursors/onion.png') 36 36, auto",
+    },
   ];
 
-  // Start on Potato
-  let activeCostume = costumes.find((c) => c.name === 'Potato') || costumes[0];
+  // Start on Default
+  let activeCostume = costumes.find((c) => c.name === 'Default') || costumes[0];
 
   function init() {
     const drawer = document.getElementById('closet-drawer');
