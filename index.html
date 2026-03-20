@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Title of the document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>johnb.rocks</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="cursor:url('Potato.webp'), auto;">
-The content of the document......
-</body>
+<body>
 
+  <header>
+    <div class="header-inner">
+      <h1>johnb<span class="dot">.</span>rocks</h1>
+      <p class="tagline">a little corner of the internet, tended with questionable care</p>
+    </div>
+    <div class="header-deco" aria-hidden="true">
+      <span>🌿</span><span>🌱</span><span>🍃</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="timeline-controls" id="timeline-controls">
+      <!-- Filters injected by timeline.js -->
+    </section>
+
+    <section class="timeline" id="timeline">
+      <!-- Content injected by timeline.js -->
+    </section>
+  </main>
+
+  <!-- Cursor Costume Closet (fixed drawer) -->
+  <div class="closet-drawer" id="closet-drawer">
+    <button class="closet-toggle" id="closet-toggle" aria-expanded="false">
+      <span class="closet-tab-text">👗 Costume Closet</span>
+    </button>
+    <div class="closet-content" aria-hidden="true">
+      <div class="closet-header">
+        <h3>Cursor Costume Closet</h3>
+        <p class="closet-desc">pick a look for your cursor ✨</p>
+      </div>
+      <div class="costume-grid" id="costume-grid">
+        <!-- Costumes injected by cursor-closet.js -->
+      </div>
+    </div>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="timeline.js"></script>
+  <script src="cursor-closet.js"></script>
+</body>
 </html>
