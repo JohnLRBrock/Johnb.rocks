@@ -28,32 +28,32 @@
     },
     {
       name: 'Carrot',
-      previewImg: 'cursors/carrot.png',
+      previewImg: 'cursors/carrot-photo.webp',
       cursor: "url('cursors/carrot.png') 36 36, auto",
     },
     {
       name: 'Broccoli',
-      previewImg: 'cursors/broccoli.png',
+      previewImg: 'cursors/broccoli-photo.webp',
       cursor: "url('cursors/broccoli.png') 36 36, auto",
     },
     {
       name: 'Eggplant',
-      previewImg: 'cursors/eggplant.png',
+      previewImg: 'cursors/eggplant-photo.webp',
       cursor: "url('cursors/eggplant.png') 36 36, auto",
     },
     {
       name: 'Corn',
-      previewImg: 'cursors/corn.png',
+      previewImg: 'cursors/corn-photo.webp',
       cursor: "url('cursors/corn.png') 36 36, auto",
     },
     {
       name: 'Tomato',
-      previewImg: 'cursors/tomato.png',
+      previewImg: 'cursors/tomato-photo.webp',
       cursor: "url('cursors/tomato.png') 36 36, auto",
     },
     {
       name: 'Onion',
-      previewImg: 'cursors/onion.png',
+      previewImg: 'cursors/onion-photo.webp',
       cursor: "url('cursors/onion.png') 36 36, auto",
     },
   ];

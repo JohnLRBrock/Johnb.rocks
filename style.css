@@ -609,7 +609,7 @@ main {
   border-radius: 0;
   padding: 10px 6px 8px;
   text-align: center;
-  cursor: pointer;
+  cursor: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
