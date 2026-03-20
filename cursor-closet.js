@@ -19,7 +19,7 @@
     {
       name: 'Potato',
       previewImg: 'Potato.webp',
-      cursor: "url('Potato.webp'), auto",
+      cursor: "url('Potato_64.png'), auto",
     },
     {
       name: 'Default',
